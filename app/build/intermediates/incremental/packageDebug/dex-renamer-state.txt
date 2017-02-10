@@ -1,7 +1,0 @@
-#Fri Feb 10 17:30:47 CET 2017
-base.0=C\:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4a791b61417040ecc333f48f10c1d8a672ff8800
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9ae5e107480d5ca63ab8d2c26411f4f3137f0cc2\\classes.dex
-base.1=C\:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9ae5e107480d5ca63ab8d2c26411f4f3137f0cc2
-file.0=C\:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4a791b61417040ecc333f48f10c1d8a672ff8800\\classes.dex

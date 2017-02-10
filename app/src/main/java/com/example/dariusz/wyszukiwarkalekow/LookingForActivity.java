@@ -89,7 +89,7 @@ public class LookingForActivity extends AppCompatActivity {
         queue.add(getRequest);
     }
 
-    private void JsonParsing(String response){ //parsowanei z json na tablice obiektów products
+    private void JsonParsing(String response){ //parsowanie z json na tablice obiektów products
         Gson gson = new Gson();
         Products[] productsArray = gson.fromJson(response,Products[].class);
         Intent intent = new Intent(this,MedicinesListActivity.class);

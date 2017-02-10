@@ -8,20 +8,20 @@
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable-xhdpi-v4\\quantum_ic_volume_up_white_36.png"
     },
     {
-        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
-        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
-    },
-    {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
     },
     {
-        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png",
-        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png"
+        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
     },
     {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png",
+        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png"
     },
     {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",

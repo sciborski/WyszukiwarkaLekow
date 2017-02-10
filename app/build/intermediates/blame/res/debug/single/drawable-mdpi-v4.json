@@ -48,12 +48,12 @@
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable-mdpi-v4\\quantum_ic_closed_caption_grey600_36.png"
     },
     {
-        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
-        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
-    },
-    {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_forward_30_grey600_36.png",
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable-mdpi-v4\\quantum_ic_forward_30_grey600_36.png"
+    },
+    {
+        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
@@ -524,12 +524,12 @@
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-mdpi-v4\\ic_cast_light.png"
     },
     {
-        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_media_route_disabled_mono_dark.png",
-        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-mdpi-v4\\ic_media_route_disabled_mono_dark.png"
-    },
-    {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-mdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_media_route_disabled_mono_dark.png",
+        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-mdpi-v4\\ic_media_route_disabled_mono_dark.png"
     },
     {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
