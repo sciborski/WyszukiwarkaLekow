@@ -59,7 +59,7 @@ public class MedicineActivity extends AppCompatActivity implements OnMapReadyCal
         //przekonwertowanie na LatLng
         LatLng city;
         try {
-            List<Address> result = new Geocoder(this).getFromLocationName(locationName, 10);//lokalizacja + ilość odpowiedzi(mogłem dać 0 bo i tak używam 0 elementu)
+            List<Address> result = new Geocoder(this).getFromLocationName(locationName, 10);
             city = new LatLng(result.get(0).getLatitude(),result.get(0).getLongitude());
             //podanie danych do mapy
             mMap = googleMap;
