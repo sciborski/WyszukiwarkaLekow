@@ -172,12 +172,12 @@
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\ic_collapse_00010.png"
     },
     {
-        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_expand_00002.png",
-        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\ic_expand_00002.png"
-    },
-    {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_expand_00005.png",
         "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\ic_expand_00005.png"
+    },
+    {
+        "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_expand_00002.png",
+        "source": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xxxhdpi-v4\\ic_expand_00002.png"
     },
     {
         "merged": "C:\\Users\\Dariusz\\AndroidStudioProjects\\WyszukiwarkaLekow\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_collapse_00013.png",
