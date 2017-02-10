@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wyszukiwarka Lekow</string>
+    <string name="nickname">nickname</string>
+    <string name="password">password</string>
+    <string name="login">log in</string>
+    <string name="register">register</string>
+    <string name="search">search</string>
+    <string name="add">add</string>
+    <string name="name">name</string>
+    <string name="town">town</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="street">street</string>
+    <string name="price">price</string>
+</resources>
