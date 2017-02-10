@@ -41,8 +41,6 @@ public class AddActivity extends AppCompatActivity {
         EditText priceAdd = (EditText) findViewById(R.id.priceAdd);
         String priceText = priceAdd.getText().toString();
 
-        //Toast toast = Toast.makeText(this, "jeszcze nie działa", Toast.LENGTH_SHORT);
-        //toast.show();
         //wysłanie json na serwer
         Map<String, String> jsonParams = new HashMap<>();
         jsonParams.put("name", nameText);
