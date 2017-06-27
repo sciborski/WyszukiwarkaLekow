@@ -40,5 +40,14 @@
         android:layout_below="@id/search_data"
         android:layout_centerHorizontal="true"
         />
+    <Button
+        android:id="@+id/scan_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/test"
+        android:text="scan"
+        android:onClick="onScanData"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

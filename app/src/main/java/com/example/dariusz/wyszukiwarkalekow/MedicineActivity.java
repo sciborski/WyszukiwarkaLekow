@@ -29,20 +29,20 @@ public class MedicineActivity extends AppCompatActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
         Intent intent = getIntent();
-        Products[] productsTab = (Products[]) intent.getSerializableExtra(EXTRA_DATA);
+        Localizations[] localizationTab = (Localizations[]) intent.getSerializableExtra(EXTRA_DATA);
         int prodId = (int)intent.getExtras().get(EXTRA_ID);
         //wyświetlenie danych o leku
         TextView name = (TextView)findViewById(R.id.medicineName);
-        name.setText("name: "+productsTab[prodId].getName());
+        name.setText("name: "+localizationTab[prodId].getProducts().getName());
 
         TextView price = (TextView)findViewById(R.id.medicinePrice);
-        price.setText("price: "+productsTab[prodId].getPrice()+" zł");
+        price.setText("price: "+localizationTab[prodId].getPrice()+" zł");
 
         TextView town = (TextView)findViewById(R.id.medicineTown);
-        town.setText("town: "+productsTab[prodId].getTown());
+        town.setText("town: "+localizationTab[prodId].getTown());
 
         TextView street = (TextView)findViewById(R.id.medicineStreet);
-        street.setText("street: "+productsTab[prodId].getStreet());
+        street.setText("street: "+localizationTab[prodId].getStreet());
 
         //mapa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -53,9 +53,9 @@ public class MedicineActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap){
         //pobranie danych lokalizacyjnych
         Intent intent = getIntent();
-        Products[] productsTab = (Products[]) intent.getSerializableExtra(EXTRA_DATA);
+        Localizations[] localizationTab = (Localizations[]) intent.getSerializableExtra(EXTRA_DATA);
         int prodId = (int)intent.getExtras().get(EXTRA_ID);
-        String locationName = productsTab[prodId].getStreet()+" "+productsTab[prodId].getTown();
+        String locationName = localizationTab[prodId].getStreet()+" "+localizationTab[prodId].getTown();
         //przekonwertowanie na LatLng
         LatLng city;
         try {

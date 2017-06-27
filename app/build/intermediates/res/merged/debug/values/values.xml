@@ -679,6 +679,7 @@
     <integer name="mr_controller_volume_group_list_fade_in_duration_ms">400</integer>
     <integer name="mr_controller_volume_group_list_fade_out_duration_ms">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Gps">Gps</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -805,7 +806,9 @@
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
     <string name="price">price</string>
+    <string name="qrCode">qrCode</string>
     <string name="register">register</string>
+    <string name="scan">scan</string>
     <string name="search">search</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>

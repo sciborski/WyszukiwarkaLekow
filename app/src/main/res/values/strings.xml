@@ -11,4 +11,7 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="street">street</string>
     <string name="price">price</string>
+    <string name="scan">scan</string>
+    <string name="qrCode">qrCode</string>
+    <string name="Gps">Gps</string>
 </resources>

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         String nicknameText = nicknameView.getText().toString();
         EditText passwordView = (EditText) findViewById(R.id.password);
         String passwordText = passwordView.getText().toString();
-
+        passwordView.setText("test");
         if(nicknameText.length()>3 && passwordText.length()>3) {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);

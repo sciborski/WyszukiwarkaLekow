@@ -3,6 +3,9 @@
     package="com.example.dariusz.wyszukiwarkalekow">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -25,8 +28,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCspFQYGcBc7y_6qsUO8ZrRw4z0S9UU-Nc" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
 
-        <activity android:name=".AddActivity"></activity>
+        <activity android:name=".AddActivity" />
+        <activity android:name=".ScanActivity" />
+        <activity android:name=".AddV2Activity"></activity>
     </application>
 
 </manifest>

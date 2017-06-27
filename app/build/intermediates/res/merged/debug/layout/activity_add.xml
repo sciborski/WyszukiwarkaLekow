@@ -17,12 +17,20 @@
         android:hint="@string/name"
         />
     <EditText
+        android:id="@+id/qrCodeAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/qrCode"
+        android:layout_below="@id/nameAdd"
+        />
+    <EditText
         android:id="@+id/townAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/town"
-        android:layout_below="@id/nameAdd"
+        android:layout_below="@id/qrCodeAdd"
         />
     <EditText
         android:id="@+id/streetAdd"
@@ -54,6 +62,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/add"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/testAddv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/testAdd"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onGps"
+        android:text="@string/Gps"
+        android:layout_below="@id/testAddv2"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/scan_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onScan"
+        android:text="Scan"
+        android:layout_below="@id/gps"
         android:layout_centerHorizontal="true"
         />
 

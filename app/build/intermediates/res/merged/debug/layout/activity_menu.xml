@@ -27,4 +27,13 @@
         android:text="@string/add"
         android:layout_below="@id/search"
         />
+    <Button
+        android:id="@+id/addv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddv2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add"
+        android:layout_below="@id/add"
+        />
 </RelativeLayout>

@@ -18,11 +18,11 @@ public class MedicinesListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        Products[] productsTab = (Products[])intent.getSerializableExtra(EXTRA_MESSAGE);
+        Localizations[] localizationTab = (Localizations[])intent.getSerializableExtra(EXTRA_MESSAGE);
         ListView listMedicines = getListView();
         List<String> nameOfProducts = new ArrayList<String>();
-        for(int i = 0;i<productsTab.length;i++){
-            nameOfProducts.add((productsTab[i].getName()+"    "+productsTab[i].getPrice()+" zł"));
+        for(int i = 0;i<localizationTab.length;i++){
+            nameOfProducts.add((localizationTab[i].getProducts().getName()+"    "+localizationTab[i].getPrice()+" zł"));
         }
 
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
@@ -39,10 +39,10 @@ public class MedicinesListActivity extends ListActivity {
                                 int position,
                                 long id){
         Intent gIntent = getIntent();
-        Products[] productsTab = (Products[])gIntent.getSerializableExtra(EXTRA_MESSAGE);
+        Localizations[] localizationTab = (Localizations[])gIntent.getSerializableExtra(EXTRA_MESSAGE);
         Intent intent = new Intent(this,MedicineActivity.class);
         intent.putExtra(MedicineActivity.EXTRA_ID,(int)id);
-        intent.putExtra(MedicineActivity.EXTRA_DATA, productsTab);
+        intent.putExtra(MedicineActivity.EXTRA_DATA, localizationTab);
         startActivity(intent);
     }
 }
