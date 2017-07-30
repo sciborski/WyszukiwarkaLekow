@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:columnCount="1"
     android:rowCount="5"
-    tools:context="com.example.dariusz.wyszukiwarkalekow.MedicineActivity">
+    tools:context="com.example.dariusz.wyszukiwarkalekow.view.medicine.details.MedicineActivity">
     <TextView
         android:id="@+id/medicineName"
         android:layout_width="wrap_content"

@@ -1279,7 +1279,7 @@ int id list_item 0x7f0f008e
 int id live_stream_indicator 0x7f0f00e9
 int id live_stream_seek_bar 0x7f0f00eb
 int id loading_indicator 0x7f0f00e4
-int id login 0x7f0f00cf
+int id login_button 0x7f0f00cf
 int id logo_only 0x7f0f007c
 int id map 0x7f0f00d6
 int id match_global_nicknames 0x7f0f0065

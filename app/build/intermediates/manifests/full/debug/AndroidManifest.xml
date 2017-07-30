@@ -31,22 +31,23 @@
         android:required="true" />
 
     <application
+        android:name="com.example.dariusz.wyszukiwarkalekow.MedicinesStorageApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.MainActivity" >
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.login.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.LookingForActivity" />
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.MenuActivity" />
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.MedicinesListActivity" />
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.MedicineActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.search.LookingForActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.home.MenuActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.search.MedicinesListActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.medicine.details.MedicineActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -55,9 +56,9 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
 
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.AddActivity" />
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.ScanActivity" />
-        <activity android:name="com.example.dariusz.wyszukiwarkalekow.AddV2Activity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.add.AddActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.add.AddV2Activity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

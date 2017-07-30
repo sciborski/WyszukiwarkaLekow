@@ -4013,7 +4013,7 @@ containing a value of this type.
         public static final int live_stream_indicator=0x7f0f00e9;
         public static final int live_stream_seek_bar=0x7f0f00eb;
         public static final int loading_indicator=0x7f0f00e4;
-        public static final int login=0x7f0f00cf;
+        public static final int login_button=0x7f0f00cf;
         public static final int logo_only=0x7f0f007c;
         public static final int map=0x7f0f00d6;
         public static final int match_global_nicknames=0x7f0f0065;
