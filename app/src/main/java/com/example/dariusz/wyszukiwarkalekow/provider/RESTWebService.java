@@ -22,16 +22,6 @@ import retrofit2.http.QueryMap;
 
 public interface RESTWebService {
 
-    @FormUrlEncoded
-    @POST("oauth/v2/token")
-    Call<LoginResponseDTO> authorization(
-            @Field("username") String username,
-            @Field("password") String password,
-            @Field("client_id") String client_id,
-            @Field("client_secret") String client_secret,
-            @Field("grant_type") String grant_type,
-            @HeaderMap Map<String, String> headers );
-
     @GET("api/medicines/{city}/{name}")
-    Call<List<Localizations>> searchMedicines(@Path("city") String city, @Path("name") String name, @HeaderMap Map<String, String> headers);
+    Call<List<Localizations>> searchMedicines( @Path("city") String city, @Path("name") String name );
 }

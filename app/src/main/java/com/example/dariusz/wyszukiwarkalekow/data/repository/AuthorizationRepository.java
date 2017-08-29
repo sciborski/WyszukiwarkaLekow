@@ -68,4 +68,13 @@ public class AuthorizationRepository {
         }
     }
 
+    public void deleteAuthToken() {
+        try {
+            OAuthEntity tokenEntity = mOAuthDAO.queryForId(NAME_AUTH_TOKEN);
+            mOAuthDAO.delete(tokenEntity);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
 }

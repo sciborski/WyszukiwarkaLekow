@@ -62,9 +62,9 @@ public class LookingForActivity extends AppCompatActivity {
         useCaseExecutor.executeUseCase(searchMedicinesUseCase, argument, new UseCaseExecutor.Listener<List<Localizations>>() {
             @Override
             public void onResult(List<Localizations> localizationses) {
-                Intent intent = new Intent(getBaseContext(),MedicinesListActivity.class);
+                //Intent intent = new Intent(getBaseContext(),MedicinesListActivity.class);
                 //intent.putExtra(MedicinesListActivity.EXTRA_MESSAGE,localizationses);
-                startActivity(intent);
+                //startActivity(intent);
             }
 
             @Override
