@@ -15,7 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,8 +26,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dariusz.wyszukiwarkalekow.MedicinesStorageApplication;
 import com.example.dariusz.wyszukiwarkalekow.R;
+import com.example.dariusz.wyszukiwarkalekow.application.add.AddLocalizationArgument;
+import com.example.dariusz.wyszukiwarkalekow.application.add.AddLocalizationUseCase;
+import com.example.dariusz.wyszukiwarkalekow.application.add.AddProductUseCase;
+import com.example.dariusz.wyszukiwarkalekow.application.base.UseCaseExecutor;
+import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Products;
+import com.example.dariusz.wyszukiwarkalekow.view.home.MenuActivity;
 import com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity;
 import com.google.gson.Gson;
 
@@ -35,14 +45,45 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class AddActivity extends AppCompatActivity {
+
+    private AddProductUseCase addProductUseCase;
+    private AddLocalizationUseCase addLocalizationUseCase;
+    private UseCaseExecutor useCaseExecutor;
+
+    @BindView(R.id.nameAdd_edittext)
+    EditText name;
+
+    @BindView(R.id.qrCodeAdd_edittext)
+    EditText qr;
+
+    @BindView(R.id.townAdd_edittext)
+    EditText town;
+
+    @BindView(R.id.streetAdd_edittext)
+    EditText street;
+
+    @BindView(R.id.priceAdd_edittext)
+    EditText price;
+
+    @BindView(R.id.progressLayoutAdd)
+    RelativeLayout progressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.dariusz.wyszukiwarkalekow.R.layout.activity_add);
 
+        addProductUseCase = MedicinesStorageApplication.get(getBaseContext()).provideAddProductUseCase();
+        addLocalizationUseCase = MedicinesStorageApplication.get(getBaseContext()).provideAddLocationUseCase();
+        useCaseExecutor = MedicinesStorageApplication.get(getBaseContext()).provideUseCaseExecutor();
+        ButterKnife.bind(this);
+        hideProgress();
         /*Intent intent = getIntent();
         String kod = intent.getStringExtra("barcode");
         TextView testTextView = (TextView) findViewById(R.id.testAddv2);
@@ -53,23 +94,43 @@ public class AddActivity extends AppCompatActivity {
 
 
     }
-
+    @OnClick(R.id.addAdd_button)
     public void onAdd(View view) {
+        showProgress();
         //pobranie informacji z pól
-        EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
-        String nameText = nameAdd.getText().toString();
+        //EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
+        final String nameText = name.getText().toString();
 
-        EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
-        String qrCodeText = qrCodeAdd.getText().toString();
+        //EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
+        final String qrCodeText = qr.getText().toString();
 
-        EditText townAdd = (EditText) findViewById(R.id.townAdd);
-        final String townText = townAdd.getText().toString();
+        //EditText townAdd = (EditText) findViewById(R.id.townAdd);
+        final String townText = town.getText().toString();
 
-        EditText streetAdd = (EditText) findViewById(R.id.streetAdd);
-        final String streetText = streetAdd.getText().toString();
+        //EditText streetAdd = (EditText) findViewById(R.id.streetAdd);
+        final String streetText = street.getText().toString();
 
-        EditText priceAdd = (EditText) findViewById(R.id.priceAdd);
-        final String priceText = priceAdd.getText().toString();
+        //EditText priceAdd = (EditText) findViewById(R.id.priceAdd);
+        final String priceText = price.getText().toString();
+        //final double price = Double.valueOf(priceText);
+        Products products = new Products(nameText,qrCodeText);
+
+
+        useCaseExecutor.executeUseCase(addProductUseCase, products, new UseCaseExecutor.Listener<Products>() {
+            @Override
+            public void onResult(Products products2) {
+                System.out.println(products2.getIdProduct());
+
+                AddLocalizationArgument argument= new AddLocalizationArgument(townText,streetText,priceText,"3",products2.getIdProduct()+"");
+                connect(argument);
+            }
+
+            @Override
+            public void onError(Exception ex) {
+                hideProgress();
+                ex.printStackTrace();
+            }
+        });
 
       /*  //wysłanie json na serwer
         Map<String, String> jsonParams = new HashMap<>();
@@ -101,7 +162,7 @@ public class AddActivity extends AppCompatActivity {
         };
         queue.add(postRequest);*/
 
-        Map<String, String> jsonParams = new HashMap<>();
+       /* Map<String, String> jsonParams = new HashMap<>();
         jsonParams.put("name", nameText);
         jsonParams.put("qrCode", qrCodeText);
         JSONObject postData = new JSONObject(jsonParams);
@@ -132,13 +193,30 @@ public class AddActivity extends AppCompatActivity {
                     }
                 }) {
         };
-        queue.add(postRequest);
+        queue.add(postRequest);*/
 
     }
 
-    private void connect(String url, String town, String street, String price, int idProduct) {
+    private void connect(AddLocalizationArgument argument) {
 
-        Map<String, String> jsonParams = new HashMap<>();
+        useCaseExecutor.executeUseCase(addLocalizationUseCase,argument, new UseCaseExecutor.Listener<Localizations>(){
+            @Override
+            public void onResult(Localizations localizations){
+                Toast toast=Toast.makeText(getBaseContext(), "Success", Toast.LENGTH_SHORT);
+                toast.show();
+                Intent intent = new Intent(getBaseContext(),MenuActivity.class);
+                hideProgress();
+                startActivity(intent);
+            }
+            @Override
+            public void onError(Exception ex) {
+                hideProgress();
+                ex.printStackTrace();
+            }
+        });
+
+
+        /*Map<String, String> jsonParams = new HashMap<>();
         jsonParams.put("town", town);
         jsonParams.put("street", street);
         jsonParams.put("price", price);
@@ -163,10 +241,11 @@ public class AddActivity extends AppCompatActivity {
                     }
                 }) {
         };
-        queue.add(postRequest);
+        queue.add(postRequest);*/
     }
-
+    @OnClick(R.id.gpsAdd_button)
     public void onGps(View view) {
+        showProgress();
         LocationManager locationManager;
         LocationListener locationListener;
 
@@ -180,10 +259,20 @@ public class AddActivity extends AppCompatActivity {
                 Geocoder geo = new Geocoder(AddActivity.this, Locale.getDefault());
                 try{
                     List<Address> address=geo.getFromLocation(lat,lon, 1);
-                    TextView test = (TextView) findViewById(R.id.testAddv2);
-                    test.setText(address.get(0).getLocality()+" "+address.get(0).getAddressLine(0));
-                }catch(Exception e){
+                    //TextView test = (TextView) findViewById(R.id.testAddv2);
+                    //test.setText(address.get(0).getLocality()+" "+address.get(0).getAddressLine(0));
 
+                    //EditText townAdd = (EditText) findViewById(R.id.townAdd);
+
+                    //EditText streetAdd = (EditText) findViewById(R.id.streetAdd);
+                    hideProgress();
+                    town.setText(address.get(0).getLocality());
+                    street.setText(address.get(0).getAddressLine(0));
+
+
+
+                }catch(Exception e){
+                    hideProgress();
                 }
 
             }
@@ -227,7 +316,7 @@ public class AddActivity extends AppCompatActivity {
                 }
         }
     }*/
-
+    @OnClick(R.id.scanAdd_button)
     public void onScan(View view){
         Intent intent = new Intent(this,ScanActivity.class);
         startActivityForResult(intent,5);
@@ -237,22 +326,29 @@ public class AddActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
+        //EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
 
-        EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
+        //EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
 
         if(requestCode == 5){
             switch (resultCode){
                 case 1:
                     Products products =(Products) data.getSerializableExtra("product");
-                    nameAdd.setText(products.getName());
-                    qrCodeAdd.setText(products.getQrCode());
+                    name.setText(products.getName());
+                    qr.setText(products.getQrCode());
                     break;
                 case 2:
                     String qrcode = data.getStringExtra("barcode");
-                    qrCodeAdd.setText(qrcode);
+                    qr.setText(qrcode);
                     break;
             }
         }
+    }
+    private void showProgress(){
+        progressLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgress(){
+        progressLayout.setVisibility(View.GONE);
     }
 }

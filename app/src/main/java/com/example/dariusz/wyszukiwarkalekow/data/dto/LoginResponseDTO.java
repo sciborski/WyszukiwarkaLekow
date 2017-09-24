@@ -2,9 +2,7 @@ package com.example.dariusz.wyszukiwarkalekow.data.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 
 public class LoginResponseDTO {
 

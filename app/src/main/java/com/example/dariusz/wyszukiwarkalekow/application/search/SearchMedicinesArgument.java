@@ -1,8 +1,5 @@
 package com.example.dariusz.wyszukiwarkalekow.application.search;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
 
 public class SearchMedicinesArgument {
 

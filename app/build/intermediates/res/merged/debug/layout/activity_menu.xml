@@ -11,29 +11,34 @@
     tools:context="com.example.dariusz.wyszukiwarkalekow.view.home.MenuActivity">
 
     <Button
-        android:id="@+id/search"
+        android:id="@+id/searchMenu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
-        android:onClick="onSearch"
         android:layout_centerHorizontal="true"
         />
     <Button
-        android:id="@+id/add"
+        android:id="@+id/addMenu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onAdd"
         android:layout_centerHorizontal="true"
         android:text="@string/add"
-        android:layout_below="@id/search"
+        android:layout_below="@id/searchMenu_button"
         />
-    <Button
+    <!--<Button
         android:id="@+id/addv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onAddv2"
         android:layout_centerHorizontal="true"
         android:text="@string/add"
         android:layout_below="@id/add"
+        />-->
+    <Button
+        android:id="@+id/logoutMenu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         />
 </RelativeLayout>

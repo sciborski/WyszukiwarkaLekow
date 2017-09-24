@@ -3,7 +3,6 @@ package com.example.dariusz.wyszukiwarkalekow.view.login;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyCharacterMap;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -17,6 +16,7 @@ import com.example.dariusz.wyszukiwarkalekow.application.login.LoginCredentials;
 import com.example.dariusz.wyszukiwarkalekow.application.login.LoginResult;
 import com.example.dariusz.wyszukiwarkalekow.application.login.LoginUseCase;
 import com.example.dariusz.wyszukiwarkalekow.view.home.MenuActivity;
+import com.example.dariusz.wyszukiwarkalekow.view.register.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.password)
     EditText passwordView;
 
-    @BindView(R.id.progressLayout)
+    @BindView(R.id.progressLayoutLogin)
     RelativeLayout progressLayout;
 
     private LoginUseCase loginUseCase;
@@ -91,17 +91,17 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
+    @OnClick(R.id.register_button)
     public void onRegister(View view){
-        Toast toast=Toast.makeText(this, "jeszcze nie działa", Toast.LENGTH_SHORT);
-        toast.show();
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
-    public void showProgress(){
+    private void showProgress(){
         progressLayout.setVisibility(View.VISIBLE);
     }
 
-    public void hideProgress(){
+    private void hideProgress(){
         progressLayout.setVisibility(View.GONE);
     }
 

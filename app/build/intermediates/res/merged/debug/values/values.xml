@@ -783,7 +783,9 @@
     <string name="debug_menu_title">Select a Debug Mode</string>
     <string name="debug_menu_troubleshooting">Troubleshooting</string>
     <string name="decline">Decline</string>
+    <string name="email">email</string>
     <string name="login">log in</string>
+    <string name="logout">logout</string>
     <string name="mr_button_content_description">Cast button</string>
     <string name="mr_chooser_searching">Finding devices</string>
     <string name="mr_chooser_title">Cast to</string>
@@ -803,6 +805,7 @@
     <string name="name">name</string>
     <string name="nickname">nickname</string>
     <string name="password">password</string>
+    <string name="passwordRepeat">repeat password</string>
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
     <string name="price">price</string>

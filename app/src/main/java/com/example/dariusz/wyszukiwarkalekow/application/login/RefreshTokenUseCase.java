@@ -5,9 +5,7 @@ import com.example.dariusz.wyszukiwarkalekow.data.dto.LoginResponseDTO;
 import com.example.dariusz.wyszukiwarkalekow.data.repository.AuthorizationRepository;
 import com.example.dariusz.wyszukiwarkalekow.provider.RESTProvider;
 
-/**
- * Created by Seweryn on 29.08.2017.
- */
+
 
 public class RefreshTokenUseCase implements UseCase<Boolean,String> {
 

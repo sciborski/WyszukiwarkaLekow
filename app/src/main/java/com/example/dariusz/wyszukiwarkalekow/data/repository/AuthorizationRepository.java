@@ -5,9 +5,7 @@ import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 
 public class AuthorizationRepository {
 

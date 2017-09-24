@@ -3,9 +3,6 @@ package com.example.dariusz.wyszukiwarkalekow.application.login;
 import com.example.dariusz.wyszukiwarkalekow.application.base.UseCase;
 import com.example.dariusz.wyszukiwarkalekow.data.repository.AuthorizationRepository;
 
-/**
- * Created by Seweryn on 29.08.2017.
- */
 
 public class CheckLoginUseCase implements UseCase<Boolean,Boolean> {
 

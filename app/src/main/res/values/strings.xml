@@ -14,4 +14,7 @@
     <string name="scan">scan</string>
     <string name="qrCode">qrCode</string>
     <string name="Gps">Gps</string>
+    <string name="email">email</string>
+    <string name="logout">logout</string>
+    <string name="passwordRepeat">repeat password</string>
 </resources>

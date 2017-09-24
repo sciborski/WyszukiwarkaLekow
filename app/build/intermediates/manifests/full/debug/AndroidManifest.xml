@@ -59,6 +59,7 @@
         <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.add.AddActivity" />
         <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity" />
         <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.add.AddV2Activity" />
+        <activity android:name="com.example.dariusz.wyszukiwarkalekow.view.register.RegisterActivity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

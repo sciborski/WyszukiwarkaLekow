@@ -1,18 +1,20 @@
 package com.example.dariusz.wyszukiwarkalekow.data.dto;
 
+import com.example.dariusz.wyszukiwarkalekow.application.base.UseCase;
+
 import java.io.Serializable;
 
-/**
- * Created by Dariusz on 2017-02-13.
- */
+
 
 public class Localizations implements Serializable{
     String town;
     String street;
     double price;
-    int idLocation;
-    Products idProduct;
-    Users idUser;
+    int id_location;
+    Products id_product;
+    //Products idProduct;
+    Users id_user;
+
 
     public double getPrice(){
         return price;
@@ -23,7 +25,8 @@ public class Localizations implements Serializable{
     public String getStreet(){
         return street;
     }
-    public int getIdLocation(){ return idLocation; }
-    public Products getProducts(){ return idProduct; }
-    public Users getUsers(){ return idUser; }
+    public int getIdLocation(){ return id_location; }
+    public Products getProducts(){ return id_product; }
+    //public Products getProducts(){ return idProduct; }
+    public Users getUsers(){ return id_user; }
 }

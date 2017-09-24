@@ -3,9 +3,7 @@ package com.example.dariusz.wyszukiwarkalekow.data.model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 @DatabaseTable(tableName = "oauth")
 public class OAuthEntity {
 

@@ -1,8 +1,6 @@
 package com.example.dariusz.wyszukiwarkalekow.application.base;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 
 public interface UseCase<ARGUMENT,RESULT> {
 

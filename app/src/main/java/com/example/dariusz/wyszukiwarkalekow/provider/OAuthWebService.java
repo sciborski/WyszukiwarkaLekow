@@ -14,9 +14,7 @@ import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 
 public interface OAuthWebService {
 

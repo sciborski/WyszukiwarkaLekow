@@ -11,9 +11,7 @@ import com.example.dariusz.wyszukiwarkalekow.provider.RESTWebService;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
+
 
 public class LoginUseCase implements UseCase<LoginCredentials,LoginResult> {
 

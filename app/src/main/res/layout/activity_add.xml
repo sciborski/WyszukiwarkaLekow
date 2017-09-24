@@ -10,84 +10,88 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dariusz.wyszukiwarkalekow.view.add.AddActivity">
     <EditText
-        android:id="@+id/nameAdd"
+        android:id="@+id/nameAdd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/name"
         />
     <EditText
-        android:id="@+id/qrCodeAdd"
+        android:id="@+id/qrCodeAdd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/qrCode"
-        android:layout_below="@id/nameAdd"
+        android:layout_below="@id/nameAdd_edittext"
         />
     <EditText
-        android:id="@+id/townAdd"
+        android:id="@+id/townAdd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/town"
-        android:layout_below="@id/qrCodeAdd"
+        android:layout_below="@id/qrCodeAdd_edittext"
         />
     <EditText
-        android:id="@+id/streetAdd"
+        android:id="@+id/streetAdd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/street"
-        android:layout_below="@id/townAdd"
+        android:layout_below="@id/townAdd_edittext"
         />
     <EditText
-        android:id="@+id/priceAdd"
+        android:id="@+id/priceAdd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/price"
-        android:layout_below="@id/streetAdd"
+        android:layout_below="@id/streetAdd_edittext"
         />
     <Button
-        android:id="@+id/add"
+        android:id="@+id/addAdd_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onAdd"
         android:text="@string/add"
-        android:layout_below="@id/priceAdd"
-        android:layout_centerHorizontal="true"
-        />
-    <TextView
-        android:id="@+id/testAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/add"
-        android:layout_centerHorizontal="true"
-        />
-    <TextView
-        android:id="@+id/testAddv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/testAdd"
+        android:layout_below="@id/priceAdd_edittext"
         android:layout_centerHorizontal="true"
         />
     <Button
-        android:id="@+id/gps"
+        android:id="@+id/scanAdd_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+    />
+    <Button
+        android:id="@+id/gpsAdd_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onGps"
         android:text="@string/Gps"
-        android:layout_below="@id/testAddv2"
+        android:layout_above="@id/scanAdd_button"
         android:layout_centerHorizontal="true"
         />
-    <Button
-        android:id="@+id/scan_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onScan"
-        android:text="Scan"
-        android:layout_below="@id/gps"
-        android:layout_centerHorizontal="true"
-        />
+    <RelativeLayout
+        android:id="@+id/progressLayoutAdd"
+        android:background="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ProgressBar
+            android:id="@+id/progressBar2Add"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="140dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

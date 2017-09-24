@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import com.example.dariusz.wyszukiwarkalekow.application.base.UseCaseExecutor;
 import com.example.dariusz.wyszukiwarkalekow.application.search.SearchMedicinesArgument;
 import com.example.dariusz.wyszukiwarkalekow.application.search.SearchMedicinesUseCase;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
+import com.example.dariusz.wyszukiwarkalekow.data.dto.MedicinesResponse;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Products;
 import com.example.dariusz.wyszukiwarkalekow.R;
 import com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity;
@@ -34,7 +36,12 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.Serializable;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LookingForActivity extends AppCompatActivity {
 
@@ -43,35 +50,59 @@ public class LookingForActivity extends AppCompatActivity {
     private SearchMedicinesUseCase searchMedicinesUseCase;
     private UseCaseExecutor useCaseExecutor;
 
+    @BindView(R.id.nameLookingFor_edittext)
+    EditText nameView;
+
+    @BindView(R.id.townLookingFor_edittext)
+    EditText townView;
+
+    @BindView(R.id.progressLayoutLookingFor_button)
+    RelativeLayout progressLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_looking_for);
         searchMedicinesUseCase = MedicinesStorageApplication.get(getBaseContext()).provideSearchMedicinesUseCase();
         useCaseExecutor = MedicinesStorageApplication.get(getBaseContext()).provideUseCaseExecutor();
+        ButterKnife.bind(this);
+        hideProgress();
     }
-    public void onSearchData(View view){
-        EditText nameView = (EditText) findViewById(R.id.name);
-        String nameText = nameView.getText().toString();
-        EditText townView = (EditText) findViewById(R.id.town);
-        String townText = townView.getText().toString();
-        SearchMedicinesArgument argument = new SearchMedicinesArgument(
-                townText,
-                nameText
-        );
-        useCaseExecutor.executeUseCase(searchMedicinesUseCase, argument, new UseCaseExecutor.Listener<List<Localizations>>() {
-            @Override
-            public void onResult(List<Localizations> localizationses) {
-                //Intent intent = new Intent(getBaseContext(),MedicinesListActivity.class);
-                //intent.putExtra(MedicinesListActivity.EXTRA_MESSAGE,localizationses);
-                //startActivity(intent);
-            }
 
-            @Override
-            public void onError(Exception ex) {
-                ex.printStackTrace();
-            }
-        });
+    @OnClick(R.id.search_dataLookingFor_button)
+    public void onSearchData(View view){
+        showProgress();
+        //EditText nameView = (EditText) findViewById(R.id.name);
+        String nameText = nameView.getText().toString();
+        //EditText townView = (EditText) findViewById(R.id.town);
+        String townText = townView.getText().toString();
+        if(nameText.isEmpty() || townText.isEmpty()){
+            Toast toast=Toast.makeText(this, "Nie uzupełniłeś pól", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+
+            SearchMedicinesArgument argument = new SearchMedicinesArgument(
+                    townText,
+                    nameText
+            );
+            useCaseExecutor.executeUseCase(searchMedicinesUseCase, argument, new UseCaseExecutor.Listener<List<MedicinesResponse>>() {
+                @Override
+                public void onResult(List<MedicinesResponse> localizations) {
+                    hideProgress();
+                    System.out.println(localizations);
+                    //JsonParsing(localizations.toString());
+                    Intent intent = new Intent(getBaseContext(), MedicinesListActivity.class);
+                    intent.putExtra(MedicinesListActivity.EXTRA_MESSAGE, (Serializable) localizations);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onError(Exception ex) {
+                    hideProgress();
+                    ex.printStackTrace();
+                }
+            });
 
         /*RequestQueue queue = Volley.newRequestQueue(this); // łączenie się ze stroną w celu pobrania danych z bazy danych
         //String url = "http://10.0.2.2:8000/search/"+townText+"/"+nameText;
@@ -114,6 +145,7 @@ public class LookingForActivity extends AppCompatActivity {
         });
 
         queue.add(getRequest);*/
+        }
     }
 
     private void JsonParsing(String response){ //parsowanie z json na tablice obiektów products
@@ -125,6 +157,7 @@ public class LookingForActivity extends AppCompatActivity {
         intent.putExtra(MedicinesListActivity.EXTRA_MESSAGE,localizationsArray);
         startActivity(intent);
     }
+    @OnClick(R.id.scan_dataLookingFor_button)
     public void onScanData(View view){
         Intent intent = new Intent(this,ScanActivity.class);
         startActivityForResult(intent,5);
@@ -137,7 +170,7 @@ public class LookingForActivity extends AppCompatActivity {
             switch (resultCode){
                 case 1:
                     Products products =(Products) data.getSerializableExtra("product");
-                    EditText nameView = (EditText) findViewById(R.id.name);
+                    //EditText nameView = (EditText) findViewById(R.id.name);
                     nameView.setText(products.getName());
                     break;
                 case 2:
@@ -146,5 +179,12 @@ public class LookingForActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
+    private void showProgress(){
+        progressLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgress(){
+        progressLayout.setVisibility(View.GONE);
     }
 }

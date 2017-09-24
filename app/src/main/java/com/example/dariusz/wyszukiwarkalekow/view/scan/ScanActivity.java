@@ -23,6 +23,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dariusz.wyszukiwarkalekow.MedicinesStorageApplication;
+import com.example.dariusz.wyszukiwarkalekow.application.base.UseCaseExecutor;
+import com.example.dariusz.wyszukiwarkalekow.application.search.SearchQrArgument;
+import com.example.dariusz.wyszukiwarkalekow.application.search.SearchQrUseCase;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Products;
 import com.example.dariusz.wyszukiwarkalekow.R;
 import com.example.dariusz.wyszukiwarkalekow.data.repository.AuthorizationRepository;
@@ -35,14 +38,20 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ScanActivity extends AppCompatActivity {
     SurfaceView cameraPreview;
+
+    private SearchQrUseCase searchQrUseCase;
+    private UseCaseExecutor useCaseExecutor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        searchQrUseCase = MedicinesStorageApplication.get(getBaseContext()).provideSearchQrUseCase();
+        useCaseExecutor = MedicinesStorageApplication.get(getBaseContext()).provideUseCaseExecutor();
         cameraPreview = (SurfaceView) findViewById(R.id.scan_preview);
         createCameraSource();
     }
@@ -101,14 +110,29 @@ public class ScanActivity extends AppCompatActivity {
                     intent.putExtra("barcode",barcodes.valueAt(0).displayValue);
                     startActivity(intent);*/
                     connect(barcodes.valueAt(0).displayValue);
+
                 }
             }
         });
     }
 
     public void connect(final String barcode){
+        SearchQrArgument argument = new SearchQrArgument(
+                barcode
+        );
+        useCaseExecutor.executeUseCase(searchQrUseCase, argument, new UseCaseExecutor.Listener<List<Products>>() {
+            @Override
+            public void onResult(List<Products> products) {
+                System.out.println(products.get(0).getName());
+                compare(products,barcode);
+            }
 
-        RequestQueue queue = Volley.newRequestQueue(this); // łączenie się ze stroną w celu pobrania danych z bazy danych
+            @Override
+            public void onError(Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        /*RequestQueue queue = Volley.newRequestQueue(this); // łączenie się ze stroną w celu pobrania danych z bazy danych
         //String url = "http://10.0.2.2:8000/search/"+barcode;
         String url = "http://192.168.122.19/web/app_dev.php/search/"+barcode;
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -140,12 +164,18 @@ public class ScanActivity extends AppCompatActivity {
                 testView.setText("Response: "+message);
             }
         });
-        queue.add(getRequest);
+        queue.add(getRequest);*/
     }
-    public void compare(String response,String barcode){
-        Gson gson = new Gson();
-        Products[] productsArray = gson.fromJson(response,Products[].class);
+    public void compare(List<Products> productsArray,String barcode){     //(String response,String barcode)
+
+
         Products product;
+
+        /*Gson gson = new Gson();                                       wczesniej poprawnie działało
+        Products[] productsArray = gson.fromJson(response,Products[].class);
+        Products product;*/
+
+
         /*Intent intent = new Intent(this,AddV2Activity.class);          tymczasowy komentarz
         if(productsArray.length>0) {
             for (int i = 0; i < productsArray.length; i++) {
@@ -162,7 +192,25 @@ public class ScanActivity extends AppCompatActivity {
             startActivity(intent);
             //finish();
         }*/
+
         Intent intent = new Intent();
+        if(productsArray.size()>0) {
+            for (int i = 0; i < productsArray.size(); i++) {
+                System.out.println("Print ln do wyswietlenia czegos"+productsArray.get(i).getQrCode());
+                if (productsArray.get(i).getQrCode().equals(barcode)) {
+                    product = productsArray.get(i);
+                    //intent.putExtra("barcode",productsArray[i]);
+                    intent.putExtra("product", product);
+                    setResult(1,intent);
+                    finish();
+                }
+            }
+        } else {
+            intent.putExtra("barcode", barcode);
+            setResult(2,intent);
+            finish();
+        }
+        /*Intent intent = new Intent();                             wcześniej poprawnie działało
         if(productsArray.length>0) {
             for (int i = 0; i < productsArray.length; i++) {
                 if (productsArray[i].getQrCode().equals(barcode)) {
@@ -177,7 +225,7 @@ public class ScanActivity extends AppCompatActivity {
             intent.putExtra("barcode", barcode);
             setResult(2,intent);
             finish();
-        }
+        }*/
         //Toast toast=Toast.makeText(this, "coś niedziała", Toast.LENGTH_SHORT);
         //toast.show();
     }

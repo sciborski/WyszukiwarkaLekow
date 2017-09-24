@@ -6,10 +6,6 @@ import android.os.Looper;
 
 
 
-/**
- * Created by Seweryn on 30.07.2017.
- */
-
 public class UseCaseExecutor {
 
     public interface Listener<RESULT>{
