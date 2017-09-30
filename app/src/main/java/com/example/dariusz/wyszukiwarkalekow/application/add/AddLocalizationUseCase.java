@@ -1,6 +1,5 @@
 package com.example.dariusz.wyszukiwarkalekow.application.add;
 
-import android.location.Location;
 
 import com.example.dariusz.wyszukiwarkalekow.application.base.UseCase;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;

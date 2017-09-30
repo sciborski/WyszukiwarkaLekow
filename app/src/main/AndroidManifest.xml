@@ -35,7 +35,6 @@
 
         <activity android:name=".view.add.AddActivity" />
         <activity android:name=".view.scan.ScanActivity" />
-        <activity android:name=".view.add.AddV2Activity" />
         <activity android:name=".view.register.RegisterActivity"></activity>
     </application>
 

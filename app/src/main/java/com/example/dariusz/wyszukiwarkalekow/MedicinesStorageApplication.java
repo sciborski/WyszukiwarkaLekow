@@ -32,8 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MedicinesStorageApplication extends Application {
 
-    private static final String HOST =  "http://192.168.122.19";//"http://10.0.2.2";
-    private static final String API_URL = "/web/app_dev.php/"; //"/REST_API/Rest_api/web/app_dev.php/";
+    private static final String HOST =  "http://192.168.122.19";
+    private static final String API_URL = "/web/app_dev.php/";
 
 
     private static final String CLIENT_ID = "5_21vemuwjz78kww8sscccgkwg84ogs4c8gw0scg4wogsgkcg444";

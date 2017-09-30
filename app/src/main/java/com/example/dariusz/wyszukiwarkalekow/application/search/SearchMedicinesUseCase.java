@@ -1,7 +1,6 @@
 package com.example.dariusz.wyszukiwarkalekow.application.search;
 
 import com.example.dariusz.wyszukiwarkalekow.application.base.UseCase;
-import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.MedicinesResponse;
 import com.example.dariusz.wyszukiwarkalekow.provider.RESTProvider;
 

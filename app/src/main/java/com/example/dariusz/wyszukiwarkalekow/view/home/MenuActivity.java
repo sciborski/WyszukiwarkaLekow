@@ -9,12 +9,9 @@ import com.example.dariusz.wyszukiwarkalekow.MedicinesStorageApplication;
 import com.example.dariusz.wyszukiwarkalekow.R;
 import com.example.dariusz.wyszukiwarkalekow.application.Logout.LogoutUseCase;
 import com.example.dariusz.wyszukiwarkalekow.application.base.UseCaseExecutor;
-import com.example.dariusz.wyszukiwarkalekow.data.repository.AuthorizationRepository;
 import com.example.dariusz.wyszukiwarkalekow.view.login.LoginActivity;
 import com.example.dariusz.wyszukiwarkalekow.view.search.LookingForActivity;
 import com.example.dariusz.wyszukiwarkalekow.view.add.AddActivity;
-import com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity;
-import com.example.dariusz.wyszukiwarkalekow.view.search.MedicinesListActivity;
 
 import java.util.List;
 
@@ -42,11 +39,6 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this,AddActivity.class);
         startActivity(intent);
     }
-    /*@OnClick(R.id.)
-    public void onAddv2(View view){
-        Intent intent = new Intent(this,ScanActivity.class);
-        startActivity(intent);
-    }*/
 
     @OnClick(R.id.logoutMenu_button)
     public void onLogout(View view){

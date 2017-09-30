@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.MedicinesResponse;
 import com.example.dariusz.wyszukiwarkalekow.view.medicine.details.MedicineActivity;
 
@@ -22,16 +21,10 @@ public class MedicinesListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        //Localizations[] localizationTab = (Localizations[])intent.getSerializableExtra(EXTRA_MESSAGE);
-        //List<Localizations> localizationTab = (List<Localizations>)intent.getSerializableExtra(EXTRA_MESSAGE);
         List<MedicinesResponse> localizationTab = (List<MedicinesResponse>)intent.getSerializableExtra(EXTRA_MESSAGE);
         ListView listMedicines = getListView();
         List<String> nameOfProducts = new ArrayList<String>();
-        /*for(int i = 0;i<localizationTab.length;i++){
-            nameOfProducts.add((localizationTab[i].getProducts().getName()+"    "+localizationTab[i].getPrice()+" zł"));
-        }*/
         for(int i = 0;i<localizationTab.size();i++){
-            //System.out.println(localizationTab.get(i).getProducts().getName());
             nameOfProducts.add((localizationTab.get(i)).getName()+"    "+localizationTab.get(i).getPrice()+" zł");
         }
 
@@ -42,7 +35,6 @@ public class MedicinesListActivity extends ListActivity {
                 nameOfProducts
         );
         listMedicines.setAdapter(listAdapter);
-        //setContentView(R.layout.activity_medicines_list);
     }
     @Override
     public void onListItemClick(ListView listView,

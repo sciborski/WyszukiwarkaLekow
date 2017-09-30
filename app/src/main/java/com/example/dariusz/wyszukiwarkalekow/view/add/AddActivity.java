@@ -15,39 +15,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.dariusz.wyszukiwarkalekow.MedicinesStorageApplication;
 import com.example.dariusz.wyszukiwarkalekow.R;
 import com.example.dariusz.wyszukiwarkalekow.application.add.AddLocalizationArgument;
 import com.example.dariusz.wyszukiwarkalekow.application.add.AddLocalizationUseCase;
+import com.example.dariusz.wyszukiwarkalekow.application.add.AddProductArgument;
 import com.example.dariusz.wyszukiwarkalekow.application.add.AddProductUseCase;
 import com.example.dariusz.wyszukiwarkalekow.application.base.UseCaseExecutor;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Products;
 import com.example.dariusz.wyszukiwarkalekow.view.home.MenuActivity;
 import com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity;
-import com.google.gson.Gson;
-
-import org.json.JSONObject;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.R.id.list;
 
 
 public class AddActivity extends AppCompatActivity {
@@ -84,45 +73,31 @@ public class AddActivity extends AppCompatActivity {
         useCaseExecutor = MedicinesStorageApplication.get(getBaseContext()).provideUseCaseExecutor();
         ButterKnife.bind(this);
         hideProgress();
-        /*Intent intent = getIntent();
-        String kod = intent.getStringExtra("barcode");
-        TextView testTextView = (TextView) findViewById(R.id.testAddv2);
-        testTextView.setText(kod);*/
-
-
-        //do gps!
-
-
     }
     @OnClick(R.id.addAdd_button)
     public void onAdd(View view) {
         showProgress();
         //pobranie informacji z pól
-        //EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
         final String nameText = name.getText().toString();
 
-        //EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
         final String qrCodeText = qr.getText().toString();
 
-        //EditText townAdd = (EditText) findViewById(R.id.townAdd);
         final String townText = town.getText().toString();
 
-        //EditText streetAdd = (EditText) findViewById(R.id.streetAdd);
         final String streetText = street.getText().toString();
 
-        //EditText priceAdd = (EditText) findViewById(R.id.priceAdd);
         final String priceText = price.getText().toString();
-        //final double price = Double.valueOf(priceText);
-        Products products = new Products(nameText,qrCodeText);
+
+        AddProductArgument productArgument = new AddProductArgument(nameText,qrCodeText);
 
 
-        useCaseExecutor.executeUseCase(addProductUseCase, products, new UseCaseExecutor.Listener<Products>() {
+        useCaseExecutor.executeUseCase(addProductUseCase, productArgument, new UseCaseExecutor.Listener<List<Products>>() {
             @Override
-            public void onResult(Products products2) {
-                System.out.println(products2.getIdProduct());
+            public void onResult(List<Products> products2) {
+                System.out.println("id produktu: "+products2.get(0).getIdProduct());
 
-                AddLocalizationArgument argument= new AddLocalizationArgument(townText,streetText,priceText,"3",products2.getIdProduct()+"");
-                connect(argument);
+                AddLocalizationArgument localizationArgument= new AddLocalizationArgument(townText,streetText,priceText,"3",products2.get(0).getIdProduct()+"");
+                connect(localizationArgument);
             }
 
             @Override
@@ -131,69 +106,6 @@ public class AddActivity extends AppCompatActivity {
                 ex.printStackTrace();
             }
         });
-
-      /*  //wysłanie json na serwer
-        Map<String, String> jsonParams = new HashMap<>();
-        jsonParams.put("name", nameText);
-        jsonParams.put("town", townText);
-        jsonParams.put("street", streetText);
-        jsonParams.put("price", priceText);
-        jsonParams.put("id", "0");//todo dodawanie uzytkownika
-        jsonParams.put("type","0");
-        JSONObject postData = new JSONObject(jsonParams);
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://10.0.2.2:8000/add";
-
-        JsonObjectRequest   postRequest = new JsonObjectRequest(Request.Method.POST, url, postData,
-                new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            // response zawiera odpowiedź w postaci obiektu JSON
-                            TextView textView = (TextView)findViewById(R.id.testAdd);
-                            textView.setText(response.toString());
-                            }
-                    },
-                new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // Błąd!
-                            }
-                    }) {
-        };
-        queue.add(postRequest);*/
-
-       /* Map<String, String> jsonParams = new HashMap<>();
-        jsonParams.put("name", nameText);
-        jsonParams.put("qrCode", qrCodeText);
-        JSONObject postData = new JSONObject(jsonParams);
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.122.19/web/app_dev.php/add_product";
-        final String urlv2 = "http://192.168.122.19/web/app_dev.php/add_location";
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, postData,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // response zawiera odpowiedź w postaci obiektu JSON
-                        TextView textView = (TextView) findViewById(R.id.testAdd);
-                        textView.setText(response.toString());
-                        //int idProd = response.getInt("idProduct");
-                        Gson gson = new Gson();
-                        Products products = gson.fromJson(response.toString(), Products.class);
-                        products.getIdProduct();
-
-                        //wiem ze to jest kiepskie! :(
-                        connect(urlv2, townText, streetText, priceText, products.getIdProduct());
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Błąd!
-                    }
-                }) {
-        };
-        queue.add(postRequest);*/
 
     }
 
@@ -215,33 +127,6 @@ public class AddActivity extends AppCompatActivity {
             }
         });
 
-
-        /*Map<String, String> jsonParams = new HashMap<>();
-        jsonParams.put("town", town);
-        jsonParams.put("street", street);
-        jsonParams.put("price", price);
-        jsonParams.put("idUser", "2");
-        jsonParams.put("idProduct", idProduct + "");
-        JSONObject postData = new JSONObject(jsonParams);
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, postData,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // response zawiera odpowiedź w postaci obiektu JSON
-                        TextView textView = (TextView) findViewById(R.id.testAdd);
-                        textView.setText(response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Błąd!
-                    }
-                }) {
-        };
-        queue.add(postRequest);*/
     }
     @OnClick(R.id.gpsAdd_button)
     public void onGps(View view) {
@@ -259,17 +144,12 @@ public class AddActivity extends AppCompatActivity {
                 Geocoder geo = new Geocoder(AddActivity.this, Locale.getDefault());
                 try{
                     List<Address> address=geo.getFromLocation(lat,lon, 1);
-                    //TextView test = (TextView) findViewById(R.id.testAddv2);
-                    //test.setText(address.get(0).getLocality()+" "+address.get(0).getAddressLine(0));
 
-                    //EditText townAdd = (EditText) findViewById(R.id.townAdd);
-
-                    //EditText streetAdd = (EditText) findViewById(R.id.streetAdd);
                     hideProgress();
                     town.setText(address.get(0).getLocality());
                     street.setText(address.get(0).getAddressLine(0));
 
-
+                    System.out.println("test");
 
                 }catch(Exception e){
                     hideProgress();
@@ -302,7 +182,6 @@ public class AddActivity extends AppCompatActivity {
                  }
                 return;
             }
-        //locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
         locationManager.requestSingleUpdate("gps",locationListener,null);
 
     }
@@ -325,10 +204,6 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        //EditText nameAdd = (EditText) findViewById(R.id.nameAdd);
-
-        //EditText qrCodeAdd = (EditText) findViewById(R.id.qrCodeAdd);
 
         if(requestCode == 5){
             switch (resultCode){

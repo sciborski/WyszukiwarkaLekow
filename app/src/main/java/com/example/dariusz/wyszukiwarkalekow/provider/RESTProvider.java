@@ -1,9 +1,8 @@
 package com.example.dariusz.wyszukiwarkalekow.provider;
 
-import android.location.Location;
-import android.util.Log;
 
 import com.example.dariusz.wyszukiwarkalekow.application.add.AddLocalizationArgument;
+import com.example.dariusz.wyszukiwarkalekow.application.add.AddProductArgument;
 import com.example.dariusz.wyszukiwarkalekow.application.register.RegisterArgument;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.Localizations;
 import com.example.dariusz.wyszukiwarkalekow.data.dto.LoginResponseDTO;
@@ -55,8 +54,8 @@ public class RESTProvider {
         return response.body();
     }
 
-    public Products addProduct(Products products) throws IOException{
-        Response<Products> response = restWebService.addProduct(products).execute();
+    public List<Products> addProduct(AddProductArgument argument) throws IOException{
+        Response<List<Products>> response = restWebService.addProduct(argument).execute();
         assertIsResponseSuccessful(response);
         return response.body();
     }

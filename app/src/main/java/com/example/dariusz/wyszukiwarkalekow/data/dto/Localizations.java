@@ -12,7 +12,6 @@ public class Localizations implements Serializable{
     double price;
     int id_location;
     Products id_product;
-    //Products idProduct;
     Users id_user;
 
 
@@ -27,6 +26,5 @@ public class Localizations implements Serializable{
     }
     public int getIdLocation(){ return id_location; }
     public Products getProducts(){ return id_product; }
-    //public Products getProducts(){ return idProduct; }
     public Users getUsers(){ return id_user; }
 }

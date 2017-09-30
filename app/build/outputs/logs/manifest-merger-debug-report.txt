@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:3:5-52
 		INJECTED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml
@@ -42,7 +42,7 @@ ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main
 	android:name
 		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:10:5-40:19
+ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:10:5-39:19
 MERGED from [com.android.support:design:24.2.1] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services:9.6.0] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\9.6.0\AndroidManifest.xml:5:5-20
@@ -161,14 +161,10 @@ activity#com.example.dariusz.wyszukiwarkalekow.view.scan.ScanActivity
 ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:37:9-60
 	android:name
 		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:37:19-57
-activity#com.example.dariusz.wyszukiwarkalekow.view.add.AddV2Activity
-ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:38:9-60
-	android:name
-		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:38:19-57
 activity#com.example.dariusz.wyszukiwarkalekow.view.register.RegisterActivity
-ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:39:9-77
+ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:38:9-77
 	android:name
-		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:39:19-65
+		ADDED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:38:19-65
 uses-sdk
 INJECTED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\AndroidManifest.xml:18:5-42
@@ -357,11 +353,11 @@ ADDED from [com.google.firebase:firebase-messaging:9.6.0] C:\Users\Dariusz\Andro
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:9.6.0] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.0\AndroidManifest.xml:25:25-75
 android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gmscore.integ.client.gass has a targetSdkVersion < 4
+IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-41:12 reason: com.google.android.gmscore.integ.client.gass has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gmscore.integ.client.gass has a targetSdkVersion < 4
+IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-41:12 reason: com.google.android.gmscore.integ.client.gass has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gmscore.integ.client.gass requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\src\main\AndroidManifest.xml:2:1-41:12 reason: com.google.android.gmscore.integ.client.gass requested WRITE_EXTERNAL_STORAGE
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.android.gms:play-services-gcm:9.6.0] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.6.0\AndroidManifest.xml:20:5-81
 MERGED from [com.google.android.gms:play-services-iid:9.6.0] C:\Users\Dariusz\AndroidStudioProjects\WyszukiwarkaLekow\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.0\AndroidManifest.xml:20:5-81
